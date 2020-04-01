@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/userRegistrationFragment"
+        android:name="tech.jayamakmur.trackingapp.ui.auth.register.UserRegistrationFragment"
+        android:label="Registration Form"
+        tools:layout="@layout/fragment_user_registration" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="tech.jayamakmur.trackingapp.ui.auth.register.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="tech.jayamakmur.trackingapp.ui.auth.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@id/dashboardFragment"
+        android:name="tech.jayamakmur.trackingapp.ui.main.dashboard.DashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_deviceListFragment"
+            app:destination="@id/deviceListFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_newDeviceFragment"
+            app:destination="@id/newDeviceFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_userRegistrationFragment"
+            app:destination="@id/userRegistrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@id/aboutFragment"
+        android:name="tech.jayamakmur.trackingapp.ui.main.about.AboutFragment"
+        android:label="About"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/deviceListFragment"
+        android:name="tech.jayamakmur.trackingapp.ui.main.device_list.DeviceListFragment"
+        android:label="Device List"
+        tools:layout="@layout/fragment_device_list" >
+        <action
+            android:id="@+id/action_deviceListFragment_to_deviceOverviewFragment"
+            app:destination="@id/deviceOverviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newDeviceFragment"
+        android:name="tech.jayamakmur.trackingapp.ui.main.new_device.NewDeviceFragment"
+        android:label="New Device"
+        tools:layout="@layout/fragment_new_device" >
+        <action
+            android:id="@+id/action_newDeviceFragment_to_deviceOverviewFragment"
+            app:destination="@id/deviceOverviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deviceOverviewFragment"
+        android:name="tech.jayamakmur.trackingapp.ui.main.device_overview.DeviceOverviewFragment"
+        android:label="Device Overview"
+        tools:layout="@layout/fragment_device_overview" >
+        <argument
+            android:name="ID"
+            app:argType="string" />
+    </fragment>
+</navigation>
